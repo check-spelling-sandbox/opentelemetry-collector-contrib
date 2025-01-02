@@ -69,7 +69,7 @@ func TestMoveUnmarshallerMapClientSpanData(t *testing.T) {
 		data *move_v1.SpanData
 		want func(ptrace.Span)
 	}{
-		// no parent span Id and source/destination fields
+		// no parent span ID and source/destination fields
 		{
 			name: "Without Optional Fields",
 			data: &move_v1.SpanData{
@@ -88,7 +88,7 @@ func TestMoveUnmarshallerMapClientSpanData(t *testing.T) {
 				span.Status().SetCode(ptrace.StatusCodeUnset)
 			},
 		},
-		// parent span Id and no source/destination fields
+		// parent span ID and no source/destination fields
 		{
 			name: "With Optional Fields",
 			data: &move_v1.SpanData{
