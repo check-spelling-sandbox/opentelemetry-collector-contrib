@@ -203,7 +203,7 @@ func newMockClusterAdmin() *mockClusterAdmin {
 	td[testTopic] = sarama.TopicDetail{
 		ReplicationFactor: testReplicationFactor,
 		ConfigEntries: map[string]*string{
-			minInsyncRelicas: &strMinInsyncReplicas,
+			minInsyncReplicas: &strMinInsyncReplicas,
 			retentionMs:      &strLogRetentionMs,
 			retentionBytes:   &strLogRetentionBytes,
 		},
