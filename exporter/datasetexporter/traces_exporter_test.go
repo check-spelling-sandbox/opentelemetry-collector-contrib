@@ -25,7 +25,7 @@ func generateTEvent1Raw() *add_events.Event {
 		Ts:         "1581452772000000321",
 		ServerHost: "foo",
 		Attrs: map[string]any{
-			"sca:schemVer": 1,
+			"sca:schemaVer": 1,
 			"sca:schema":   "tracing",
 			"sca:type":     "span",
 
@@ -54,7 +54,7 @@ func generateTEvent2Raw() *add_events.Event {
 		Ts:         "1581452772000000321",
 		ServerHost: "foo",
 		Attrs: map[string]any{
-			"sca:schemVer": 1,
+			"sca:schemaVer": 1,
 			"sca:schema":   "tracing",
 			"sca:type":     "span",
 
@@ -84,7 +84,7 @@ func generateTEvent3Raw() *add_events.Event {
 		Ts:         "1581452772000000321",
 		ServerHost: "valServerHost",
 		Attrs: map[string]any{
-			"sca:schemVer": 1,
+			"sca:schemaVer": 1,
 			"sca:schema":   "tracing",
 			"sca:type":     "span",
 
@@ -152,7 +152,7 @@ func TestBuildEventsFromSpanAttributesCollision(t *testing.T) {
 			Sev:    9,
 			Ts:     "0",
 			Attrs: map[string]any{
-				"sca:schemVer": 1,
+				"sca:schemaVer": 1,
 				"sca:schema":   "tracing",
 				"sca:type":     "span",
 
@@ -208,7 +208,7 @@ func TestBuildEventsFromSpanAttributesDifferentTypes(t *testing.T) {
 			Sev:    9,
 			Ts:     "0",
 			Attrs: map[string]any{
-				"sca:schemVer": 1,
+				"sca:schemaVer": 1,
 				"sca:schema":   "tracing",
 				"sca:type":     "span",
 
@@ -268,7 +268,7 @@ func TestBuildEventFromSpan(t *testing.T) {
 			name:     "Default",
 			settings: newDefaultTracesSettings(),
 			expected: add_events.EventAttrs{
-				"sca:schemVer": 1,
+				"sca:schemaVer": 1,
 				"sca:schema":   "tracing",
 				"sca:type":     "span",
 
@@ -304,7 +304,7 @@ func TestBuildEventFromSpan(t *testing.T) {
 				},
 			},
 			expected: add_events.EventAttrs{
-				"sca:schemVer": 1,
+				"sca:schemaVer": 1,
 				"sca:schema":   "tracing",
 				"sca:type":     "span",
 
@@ -340,7 +340,7 @@ func TestBuildEventFromSpan(t *testing.T) {
 				},
 			},
 			expected: add_events.EventAttrs{
-				"sca:schemVer": 1,
+				"sca:schemaVer": 1,
 				"sca:schema":   "tracing",
 				"sca:type":     "span",
 
@@ -608,7 +608,7 @@ func generateSimpleEvent(
 	serverHost string,
 ) *add_events.Event {
 	attrs := map[string]any{
-		"sca:schemVer": 1,
+		"sca:schemaVer": 1,
 		"sca:schema":   "tracing",
 		"sca:type":     "span",
 
