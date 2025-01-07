@@ -123,9 +123,9 @@ func makeAws(attributes map[string]pcommon.Value, resource pcommon.Resource, log
 	for key, value := range attributes {
 		switch key {
 		case conventions.AttributeRPCMethod:
-			// Determinstically handled with if else above
+			// Deterministically handled with if else above
 		case awsxray.AWSOperationAttribute:
-			// Determinstically handled with if else above
+			// Deterministically handled with if else above
 		case awsxray.AWSAccountAttribute:
 			if value.Type() != pcommon.ValueTypeEmpty {
 				account = value.Str()
