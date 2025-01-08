@@ -4295,7 +4295,7 @@ This release fixes CVE-2024-42368 on the `bearerauthtokenextension` (#34516)
 ### 🚩 Deprecations 🚩
 
 - `humioexporter`: Humio now known as LogScale beginning with version 1.68 supports OTLP using HTTP and no longer requires a product specific exporter. (#17013)
-  See https://library.humio.com/humio-server/endpoints.html
+  See https://library.humio.com/falcon-logscale-cloud/endpoints.html
 
 ### 🚀 New components 🚀
 
