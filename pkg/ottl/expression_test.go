@@ -707,7 +707,7 @@ func Test_newGetter(t *testing.T) {
 
 			switch v := val.(type) {
 			case pcommon.Map:
-				// need to compare the raw map here as require.EqualValues can not seem to handle
+				// need to compare the raw map here as require.EqualValues cannot seem to handle
 				// the comparison of pcommon.Map
 				assert.EqualValues(t, tt.want, v.AsRaw())
 			default:
@@ -2275,7 +2275,7 @@ func Test_StandardDurationGetter(t *testing.T) {
 			valid: true,
 		},
 		{
-			name: "complex duation values less than 1 seconc",
+			name: "complex duration values less than 1 second",
 			getter: StandardDurationGetter[any]{
 				Getter: func(_ context.Context, _ any) (any, error) {
 					return time.ParseDuration("10ms66us7000ns")

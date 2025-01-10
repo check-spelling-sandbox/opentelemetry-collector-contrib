@@ -610,7 +610,7 @@ func Test_evaluateMathExpressionTimeDuration(t *testing.T) {
 	)
 	zeroSecs, err := time.ParseDuration("0s")
 	require.NoError(t, err)
-	fourtySevenHourseFourtyTwoMinutesTwentySevenSecs, err := time.ParseDuration("47h42m27s")
+	fortySevenHoursFortyTwoMinutesTwentySevenSecs, err := time.ParseDuration("47h42m27s")
 	require.NoError(t, err)
 	oneHundredOne, err := time.ParseDuration("101h101m101s101ns")
 	require.NoError(t, err)
@@ -618,7 +618,7 @@ func Test_evaluateMathExpressionTimeDuration(t *testing.T) {
 	require.NoError(t, err)
 	threeTwentyEightMins, err := time.ParseDuration("328m")
 	require.NoError(t, err)
-	tenHoursetc, err := time.ParseDuration("10h47m48s11ns")
+	tenHoursEtc, err := time.ParseDuration("10h47m48s11ns")
 	require.NoError(t, err)
 
 	tests := []struct {
@@ -730,7 +730,7 @@ func Test_evaluateMathExpressionTimeDuration(t *testing.T) {
 					},
 				},
 			},
-			expected: -fourtySevenHourseFourtyTwoMinutesTwentySevenSecs,
+			expected: -fortySevenHoursFortyTwoMinutesTwentySevenSecs,
 		},
 		{
 			name: "dur add time",
@@ -1142,7 +1142,7 @@ func Test_evaluateMathExpressionTimeDuration(t *testing.T) {
 					},
 				},
 			},
-			expected: tenHoursetc,
+			expected: tenHoursEtc,
 		},
 	}
 	for _, tt := range tests {

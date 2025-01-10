@@ -29,7 +29,7 @@ const (
 var containerInsightsRegexPattern = regexp.MustCompile(`^/aws/.*containerinsights/.*/(performance|prometheus)$`)
 
 // Possible exceptions are combination of common errors (https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonErrors.html)
-// and API specific erros (e.g. https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html#API_PutLogEvents_Errors)
+// and API specific errors (e.g. https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html#API_PutLogEvents_Errors)
 type Client struct {
 	svc          cloudwatchlogsiface.CloudWatchLogsAPI
 	logRetention int64
@@ -167,7 +167,7 @@ func (client *Client) CreateStream(logGroup, streamName *string) error {
 				Tags:         client.tags,
 			})
 			if err == nil {
-				// For newly created log groups, set the log retention polic if specified or non-zero.  Otheriwse, set to Never Expire
+				// For newly created log groups, set the log retention polic if specified or non-zero.  Otherwise, set to Never Expire
 				if client.logRetention != 0 {
 					_, err = client.svc.PutRetentionPolicy(&cloudwatchlogs.PutRetentionPolicyInput{LogGroupName: logGroup, RetentionInDays: &client.logRetention})
 					if err != nil {

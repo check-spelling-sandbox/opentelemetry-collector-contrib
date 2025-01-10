@@ -38,8 +38,7 @@ The `file_input` operator reads logs from files. It will place the lines read in
 
 Note that by default, no logs will be read unless the monitored file is actively being written to because `start_at` defaults to `end`.
 
-`include` and `exclude` fields use `github.com/bmatcuk/doublestar` for expression language.
-For reference documentation see [here](https://github.com/bmatcuk/doublestar#patterns).
+`include` and `exclude` fields use [`github.com/bmatcuk/doublestar`](https://github.com/bmatcuk/doublestar#patterns) for expression language.
 
 #### `multiline` configuration
 
@@ -59,7 +58,7 @@ Also refer to [recombine](../operators/recombine.md) operator for merging events
 ### File rotation
 
 When files are rotated and its new names are no longer captured in `include` pattern (i.e. tailing symlink files), it could result in data loss.
-To avoid the data loss, choose move/create rotation method and set `max_concurrent_files` higher than the twice of the number of files to tail.
+To avoid the data loss, choose move/create rotation method and set `max_concurrent_files` greater than the twice of the number of files to tail.
 
 ### Supported encodings
 

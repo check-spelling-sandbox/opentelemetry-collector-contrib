@@ -1,7 +1,7 @@
 # OpAMP Supervisor for the OpenTelemetry Collector
 
 This is an implementation of an OpAMP Supervisor that runs a Collector instance using configuration provided from an OpAMP server. This implementation
-is following a design specified [here](./specification/README.md).
+is following a [specification](./specification/README.md).
 The design is still undergoing changes, and as such this implementation may change as well.
 
 ## Experimenting with the supervisor
@@ -24,7 +24,7 @@ The supervisor is currently undergoing heavy development and is not ready for an
    make otelcontribcol
    ```
 
-3. Run the supervisor in the `cmd/opampsupervisor` directory of Collector contrib repository, substituting `<OS>` for your operating system (`darwin` for MacOS, `linux` or `windows`):
+3. Run the supervisor in the `cmd/opampsupervisor` directory of Collector contrib repository, substituting `<OS>` for your operating system (`darwin` for macOS, `linux` or `windows`):
 
    ```shell
    cd cmd/opampsupervisor
@@ -34,7 +34,7 @@ The supervisor is currently undergoing heavy development and is not ready for an
 4. The supervisor should connect to the OpAMP server and start a Collector instance.
 
 ## Persistent data storage
-The supervisor persists some data to disk in order to mantain state between restarts. The directory where this data is stored may be specified via the supervisor configuration:
+The supervisor persists some data to disk in order to maintain state between restarts. The directory where this data is stored may be specified via the supervisor configuration:
 ```yaml
 storage:
   directory: "/path/to/storage/dir"
@@ -86,6 +86,6 @@ For a list of open issues related to the Supervisor, see [these issues](https://
 | Starts and stops a Collector using remote configuration            | ⚠️                                                                               |
 | Communicates with OpAMP extension running in the Collector         | <https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/21071> |
 | Updates the Collector binary                                       | 📅                                                                               |
-| Configures the Collector to report it's own metrics over OTLP      | 📅                                                                               |
-| Configures the Collector to report it's own logs over OTLP         | 📅                                                                               |
+| Configures the Collector to report its own metrics over OTLP       | 📅                                                                               |
+| Configures the Collector to report its own logs over OTLP          | 📅                                                                               |
 | Sanitization or restriction of Collector config                    | <https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/24310> |

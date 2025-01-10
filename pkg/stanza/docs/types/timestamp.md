@@ -19,7 +19,7 @@ If a timestamp block is specified, the parser operator will perform the timestam
 
 The `strptime` layout type approximates familiar strptime/strftime formats. See the table below for a list of supported directives.
 
-The `gotime` layout type uses Golang's native time parsing capabilities. Golang takes an [unconventional approach](https://www.pauladamsmith.com/blog/2011/05/go_time.html) to time parsing. Finer details are documented [here](https://golang.org/src/time/format.go?s=25102:25148#L9).
+The `gotime` layout type uses Golang's native time parsing capabilities. Golang takes an [unconventional approach](https://www.pauladamsmith.com/blog/2011/05/go_time.html) to time parsing. [Finer details are documented](https://golang.org/src/time/format.go?s=25102:25148#L9).
 
 | `strptime` directive | `gotime` equivalent | Description |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ The `epoch` layout type uses can consume epoch-based timestamps. The following l
 | `s.us` | Seconds plus microseconds since the epoch | 1136214245.123456    | `string`, `int64`<sup>[1]</sup>, `float64`               |
 | `s.ns` | Seconds plus nanoseconds since the epoch  | 1136214245.123456789 | `string`, `int64`<sup>[1]</sup>, `float64`<sup>[2]</sup> |
 
-<sub>[1] Interpretted as seconds. Equivalent to using `s` layout.</sub><br/>
+<sub>[1] Interpreted as seconds. Equivalent to using `s` layout.</sub><br/>
 <sub>[2] Due to floating point precision limitations, loss of up to 100ns may be expected.</sub>
 
 
@@ -102,7 +102,7 @@ As a special case, the [`time_parser`](../operators/time_parser.md) operator sup
 
 ### Example Configurations
 
-The following examples use file log receiver, but they also apply to other components that use the stanza libarary.
+The following examples use file log receiver, but they also apply to other components that use the stanza library.
 
 #### Parse timestamps from plain text logs
 

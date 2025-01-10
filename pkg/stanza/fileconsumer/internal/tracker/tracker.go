@@ -93,7 +93,7 @@ func (t *fileTracker) GetClosedFile(fp *fingerprint.Fingerprint) *reader.Metadat
 }
 
 func (t *fileTracker) GetMetadata() []*reader.Metadata {
-	// return all known metadata for checkpoining
+	// return all known metadata for checkpointing
 	allCheckpoints := make([]*reader.Metadata, 0, t.TotalReaders())
 	for _, knownFiles := range t.knownFiles {
 		allCheckpoints = append(allCheckpoints, knownFiles.Get()...)
@@ -154,7 +154,7 @@ func (t *fileTracker) archive(metadata *fileset.Fileset[*reader.Metadata]) {
 	// index       | ▶  │ 0 │  ▶  │ 1 │  ▶      ...       ▶ │ polls_to_archive │ |
 	//             | ▲  └───┘     └───┘                     └──────────────────┘ |
 	//             | ▲    ▲                                                ▼     |
-	//             | ▲    │ Roll over overriting older offsets, if any     ◀     |
+	//             | ▲    │ Roll over overwriting older offsets, if any    ◀     |
 	//             └──────│──────────────────────────────────────────────────────┘
 	//                    │
 	//                    │
@@ -171,7 +171,7 @@ func (t *fileTracker) archive(metadata *fileset.Fileset[*reader.Metadata]) {
 	t.archiveIndex = (t.archiveIndex + 1) % t.pollsToArchive // increment the index
 }
 
-// readArchive loads data from the archive for a given index and returns a fileset.Filset.
+// readArchive loads data from the archive for a given index and returns a fileset.Fileset.
 func (t *fileTracker) readArchive(index int) (*fileset.Fileset[*reader.Metadata], error) {
 	key := fmt.Sprintf("knownFiles%d", index)
 	metadata, err := checkpoint.LoadKey(context.Background(), t.persister, key)
@@ -218,7 +218,7 @@ func (t *fileTracker) FindFiles(fps []*fingerprint.Fingerprint) []*reader.Metada
 				continue
 			}
 			if md := data.Match(fp, fileset.StartsWith); md != nil {
-				// update the matched metada for the index
+				// update the matched metadata for the index
 				matchedMetadata[j] = md
 				archiveModified = true
 				numMatched++

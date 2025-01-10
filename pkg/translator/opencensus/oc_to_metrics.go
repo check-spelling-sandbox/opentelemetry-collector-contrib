@@ -39,7 +39,7 @@ func OCToMetrics(node *occommon.Node, resource *ocresource.Resource, metrics []*
 	// that have nil Resource field must be placed in one other ResourceMetrics instance,
 	// which will gets its Resource field from "md.Resource".
 	//
-	// We will end up with with one or more ResourceMetrics like this:
+	// We will end up with one or more ResourceMetrics like this:
 	//
 	// ResourceMetrics           ResourceMetrics  ResourceMetrics
 	// +-------+-------+---+-------+ +--------------+ +--------------+
@@ -193,15 +193,15 @@ func fillAttributesMap(ocLabelsKeys []*ocmetrics.LabelKey, ocLabelValues []*ocme
 		return
 	}
 
-	lablesCount := len(ocLabelsKeys)
+	labelsCount := len(ocLabelsKeys)
 
 	// Handle invalid length of OC label values list
-	if len(ocLabelValues) < lablesCount {
-		lablesCount = len(ocLabelValues)
+	if len(ocLabelValues) < labelsCount {
+		labelsCount = len(ocLabelValues)
 	}
 
-	attributesMap.EnsureCapacity(lablesCount)
-	for i := 0; i < lablesCount; i++ {
+	attributesMap.EnsureCapacity(labelsCount)
+	for i := 0; i < labelsCount; i++ {
 		if !ocLabelValues[i].GetHasValue() {
 			continue
 		}

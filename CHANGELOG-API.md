@@ -492,9 +492,9 @@ If you are looking for user-facing changes, check out [CHANGELOG.md](./CHANGELOG
 ### 🚩 Deprecations 🚩
 
 - `pkg/stanza`: Deprecate 'helper.EncodingConfig' and 'helper.NewEncodingConfig' (#25846)
-- `pkg/stanza`: Deprecate encoding related elements of helper pacakge, in favor of new decoder package (#26019)
+- `pkg/stanza`: Deprecate encoding related elements of helper package, in favor of new decoder package (#26019)
   Includes the following deprecations | - Decoder - NewDecoder - LookupEncoding - IsNop
-- `pkg/stanza`: Deprecate tokenization related elements of helper pacakge, in favor of new tokenize package (#25914)
+- `pkg/stanza`: Deprecate tokenization related elements of helper package, in favor of new tokenize package (#25914)
   Includes the following deprecations | - Flusher - FlusherConfig - NewFlusherConfig - Multiline - MultilineConfig - NewMultilineConfig - NewLineStartSplitFunc - NewLineEndSplitFunc - NewNewlineSplitFunc - Splitter - SplitterConfig - NewSplitterConfig - SplitNone
 
 ### 💡 Enhancements 💡
@@ -532,7 +532,7 @@ If you are looking for user-facing changes, check out [CHANGELOG.md](./CHANGELOG
 ### 💡 Enhancements 💡
 
 - `changelog`: Generate separate changelogs for end users and package consumers (#24014)
-- `splunkhecexporter`: Add heartbeat check while startup and new config param, heartbeat/startup (defaults to false). This is different than the healtcheck_startup, as the latter doesn't take token or index into account. (#24411)
+- `splunkhecexporter`: Add heartbeat check while startup and new config param, heartbeat/startup (defaults to false). This is different than the healthcheck_startup, as the latter doesn't take token or index into account. (#24411)
 - `k8sclusterreceiver`: Allows disabling metrics and resource attributes (#24568)
 - `cmd/mdatagen`: Avoid reusing the same ResourceBuilder instance for multiple ResourceMetrics (#24762)
 

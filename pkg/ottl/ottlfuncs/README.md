@@ -728,7 +728,7 @@ Default set consists of:
 | UUID |"123e4567-e89b-12d3-a456-426614174000" |
 | URN | "urn:isbn:0451450523", "urn:ietf:rfc:2648" |
 
-and many more. Complete list can be found [here](https://github.com/elastic/go-grok/blob/main/patterns/default.go).
+and many more. The complete list can be found in [elastic/go-grok: patterns/default.go](https://github.com/elastic/go-grok/blob/main/patterns/default.go).
 
 Examples:
 
@@ -1286,7 +1286,7 @@ Examples:
 
 The `ParseCSV` Converter returns a `pcommon.Map` struct that contains the result of parsing the `target` string as CSV. The resultant map is structured such that it is a mapping of field name -> field value.
 
-`target` is a Getter that returns a string. This string should be a CSV row. if `target` is not a properly formatted CSV row, or if the number of fields in `target` does not match the number of fields in `headers`, `ParseCSV` will return an error. Leading and trailing newlines in `target` will be stripped. Newlines elswhere in `target` are not treated as row delimiters during parsing, and will be treated as though they are part of the field that are placed in.
+`target` is a Getter that returns a string. This string should be a CSV row. if `target` is not a properly formatted CSV row, or if the number of fields in `target` does not match the number of fields in `headers`, `ParseCSV` will return an error. Leading and trailing newlines in `target` will be stripped. Newlines elsewhere in `target` are not treated as row delimiters during parsing, and will be treated as though they are part of the field that are placed in.
 
 `headers` is a Getter that returns a string. This string should be a CSV header, specifying the names of the CSV fields.
 
@@ -1294,9 +1294,9 @@ The `ParseCSV` Converter returns a `pcommon.Map` struct that contains the result
 
 `headerDelimiter` is an optional string parameter that specified the delimiter used to split `headers` into fields. By default, it is set to the value of `delimiter`.
 
-`mode` is an optional string paramater that specifies the parsing mode. Valid values are `strict`, `lazyQuotes`, and `ignoreQuotes`. By default, it is set to `strict`.
+`mode` is an optional string parameter that specifies the parsing mode. Valid values are `strict`, `lazyQuotes`, and `ignoreQuotes`. By default, it is set to `strict`.
 - The `strict` mode provides typical CSV parsing.
-- The `lazyQotes` mode provides a relaxed version of CSV parsing where a quote may appear in the middle of a unquoted field.
+- The `lazyQuotes` mode provides a relaxed version of CSV parsing where a quote may appear in the middle of a unquoted field.
 - The `ignoreQuotes` mode completely ignores any quoting rules for CSV and just splits the row on the delimiter.
 
 Examples:
@@ -2107,7 +2107,7 @@ The `UserAgent` Converter parses the string argument trying to match it against 
 The results of the parsing are returned as a map containing `user_agent.name`, `user_agent.version` and `user_agent.original`
 as defined in semconv v1.25.0.
 
-Parsing is done using the [uap-go package](https://github.com/ua-parser/uap-go). The specific formats it recognizes can be found [here](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml).
+Parsing is done using the [uap-go package](https://github.com/ua-parser/uap-go). The specific formats it recognizes can be found in [regexes.yaml](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml).
 
 Examples:
 

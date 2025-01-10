@@ -254,7 +254,7 @@ func CompareProfile(expected, actual pprofile.Profile) error {
 	}
 
 	if !reflect.DeepEqual(expected.LocationIndices(), actual.LocationIndices()) {
-		errs = multierr.Append(errs, fmt.Errorf("locationIndicies do not match expected"))
+		errs = multierr.Append(errs, fmt.Errorf("locationIndices do not match expected"))
 	}
 
 	if !reflect.DeepEqual(expected.CommentStrindices(), actual.CommentStrindices()) {
@@ -452,7 +452,7 @@ func CompareProfileSample(expected, actual pprofile.Sample) error {
 	}
 
 	if expected.LocationsLength() != actual.LocationsLength() {
-		errs = multierr.Append(errs, fmt.Errorf("expected locationLenght '%d', got '%d'", expected.LocationsLength(), actual.LocationsLength()))
+		errs = multierr.Append(errs, fmt.Errorf("expected locationLength '%d', got '%d'", expected.LocationsLength(), actual.LocationsLength()))
 	}
 
 	if !reflect.DeepEqual(expected.TimestampsUnixNano().AsRaw(), actual.TimestampsUnixNano().AsRaw()) {

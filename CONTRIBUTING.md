@@ -16,8 +16,7 @@ change. For instance:
 ### Description guidelines
 
 When linking to an open issue, if your PR is meant to close said issue, please prefix your issue with one of the
-following keywords: `Resolves`, `Fixes`, or `Closes`. More information on this functionality (and more keyword options) can be found
-[here](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
+following keywords: `Resolves`, `Fixes`, or `Closes`. For more information, see the [documentation on this functionality (and more keyword options)](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
 This will automatically close the issue once your PR has been merged.
 
 ## Changelog
@@ -125,7 +124,7 @@ Components refer to connectors, exporters, extensions, processors, and receivers
 * Implement the [component.Component](https://pkg.go.dev/go.opentelemetry.io/collector/component#Component) interface
 * Provide a configuration structure which defines the configuration of the component
 * Provide the implementation which performs the component operation
-* Have a `metadata.yaml` file and its generated code (using [mdatadgen](https://github.com/open-telemetry/opentelemetry-collector/blob/main/cmd/mdatagen/README.md)).
+* Have a `metadata.yaml` file and its generated code (using [mdatagen](https://github.com/open-telemetry/opentelemetry-collector/blob/main/cmd/mdatagen/README.md)).
 
 Familiarize yourself with the interface of the component that you want to write, and use existing implementations as a reference.
 [Building a Trace Receiver](https://opentelemetry.io/docs/collector/trace-receiver/) tutorial provides a detailed example of building a component.
@@ -152,15 +151,15 @@ and its contributors.
 - Add a README.md on the root of your component describing its configuration and usage, likely referencing some of the
   yaml files used in the component tests. We also suggest that the yaml files used in tests have comments for all
   available configuration settings so users can copy and modify them as needed.
-- Run `make crosslink` to update intra-repository dependencies. It will add a `replace` directive to `go.mod` file of every intra-repository dependant. This is necessary for your component to be included in the contrib executable.
+- Run `make crosslink` to update intra-repository dependencies. It will add a `replace` directive to `go.mod` file of every intra-repository dependent. This is necessary for your component to be included in the contrib executable.
 - Add your component to `versions.yaml`.
 - All components included in the distribution must be included in
   [`cmd/otelcontribcol/builder-config.yaml`](./cmd/otelcontribcol/builder-config.yaml)
   and in the respective testing harnesses. To align with the test goal of the
   project, components must be testable within the framework defined within the
-  folder. If a component can not be properly tested within the existing
+  folder. If a component cannot be properly tested within the existing
   framework, it must increase the non testable components number with a comment
-  within the PR explaining as to why it can not be tested. **(Note: this does
+  within the PR explaining as to why it cannot be tested. **(Note: this does
   not automatically include any components in official release binaries. See
   [Releasing new components](#releasing-new-components).)**
 
@@ -241,14 +240,14 @@ to be included in the distributed otelcol-contrib binaries and docker images.
 
 ## Adding metrics to existing receivers
 Following these steps for contributing additional metrics to existing receivers.
- - Read instructions [here](https://github.com/open-telemetry/opentelemetry-collector/blob/main/CONTRIBUTING.md#fork) on how to
-   fork, build and create PRs. The only difference is to change repository name from `opentelemetry-collector` to `opentelemetry-collector-contrib`
+ - Read [instructions on how to fork
+  ](https://github.com/open-telemetry/opentelemetry-collector/blob/main/CONTRIBUTING.md#fork), build and create PRs. The only difference is to change repository name from `opentelemetry-collector` to `opentelemetry-collector-contrib`
  - Edit `metadata.yaml` of your metrics receiver to add new metrics, e.g.: `redisreceiver/metadata.yaml`
  - To generate new metrics on top of this updated YAML file.
    - Run `cd receiver/redisreceiver`
    - Run `go generate ./...`
 - Review the changed files and merge the changes into your forked repo.
-- Create PR from Github web console following the instructions above.
+- Create PR from GitHub web console following the instructions above.
 
 ## General Recommendations
 Below are some recommendations that apply to typical components. These are not rigid rules and there are exceptions but
@@ -259,8 +258,7 @@ in general try to follow them.
 - When implementing exporters try to leverage the exporter helpers from the core repo, see [exporterhelper
   package](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/exporterhelper). This will
   ensure that the exporter provides [zPages](https://opencensus.io/zpages/) and a standard set of metrics.
-- `replace` statements in `go.mod` files can be automatically inserted by running `make crosslink`. For more information
-  on the `crosslink` tool see the README [here](https://github.com/open-telemetry/opentelemetry-go-build-tools/tree/main/crosslink).
+- `replace` statements in `go.mod` files can be automatically inserted by running `make crosslink`. For more information, see the [`crosslink` tool README](https://github.com/open-telemetry/opentelemetry-go-build-tools/tree/main/crosslink).
 
 ## Issue Triaging
 
@@ -340,9 +338,9 @@ Be sure to tag the existing Code Owners, if any, within the PR to ensure they re
 
 ### Emeritus roles
 
-Contributors who are unable to meet the responsibilities of their role are encouraged to move to [emeritus](https://github.com/open-telemetry/community/blob/main/guides/contributor/membership.md#emeritus-maintainerapprovertriager). In case of long temporary absences, contributors are encouraged to let maintainers know on the CNCF Slack (e.g. on the #otel-collector-dev channel or privately via DM) and to mark themselves as 'Busy' on Github.
+Contributors who are unable to meet the responsibilities of their role are encouraged to move to [emeritus](https://github.com/open-telemetry/community/blob/main/guides/contributor/membership.md#emeritus-maintainerapprovertriager). In case of long temporary absences, contributors are encouraged to let maintainers know on the CNCF Slack (e.g. on the #otel-collector-dev channel or privately via DM) and to mark themselves as 'Busy' on GitHub.
 
-In the event that a contributor becomes inactive without prior notice, the maintainers will attempt to contact the contributor via both Github and the CNCF Slack to confirm their status. After two weeks, if the contributor is an approver or maintainer, they may be removed from the Github review auto-assignment.
+In the event that a contributor becomes inactive without prior notice, the maintainers will attempt to contact the contributor via both GitHub and the CNCF Slack to confirm their status. After two weeks, if the contributor is an approver or maintainer, they may be removed from the GitHub review auto-assignment.
 
 If the contributor does not respond within a period of two months, they may be moved to emeritus status at the discretion of the maintainers, following a majority vote among the maintainers (possibly excluding the contributor in question).
 
